@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ro" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>V.T. Manager</title>
+    <meta name="description" content="V.T. Manager - Gestionare Clienți" />
+    <meta name="theme-color" content="#020617" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2360a5fa'/%3E%3Cstop offset='100%25' stop-color='%231d4ed8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='%23020617'/%3E%3Ctext x='50' y='65' font-family='Arial Black' font-size='40' font-weight='bold' fill='url(%23g)' text-anchor='middle'%3EV.T.%3C/text%3E%3C/svg%3E" />
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2360a5fa'/%3E%3Cstop offset='100%25' stop-color='%231d4ed8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='%23020617'/%3E%3Ctext x='50' y='65' font-family='Arial Black' font-size='40' font-weight='bold' fill='url(%23g)' text-anchor='middle'%3EV.T.%3C/text%3E%3C/svg%3E" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    
+    <!-- Leaflet CSS & JS for Maps -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        // Brand Colors - Electric Blue (High Saturation)
+                        "primary": "#2563eb", // Blue 600
+                        "primary-dark": "#1d4ed8", // Blue 700
+                        
+                        // Light Mode Base - High Contrast White/Black
+                        "background-light": "#f1f5f9", // Slate 100
+                        "surface-light": "#ffffff",
+                        "text-main-light": "#020617", // Slate 950
+                        
+                        // Dark Mode Base - Deep Black/Grey
+                        "background-dark": "#020617", // Slate 950 (Almost Black)
+                        "card-dark": "#0f172a", // Slate 900
+                        "surface-dark": "#1e293b", // Slate 800
+                        "border-dark": "#334155", // Slate 700
+                        
+                        // Text
+                        "text-white": "#ffffff", // Pure White
+                        "text-muted": "#94a3b8", // Slate 400 (Lighter for contrast)
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    boxShadow: {
+                        'glow': '0 0 15px -3px rgba(37, 99, 235, 0.5)',
+                        'sharp': '0 1px 2px 0 rgba(0, 0, 0, 0.05), 0 1px 3px 0 rgba(0, 0, 0, 0.1)',
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #020617; /* Fallback */
+        -webkit-tap-highlight-color: transparent;
+      }
+      /* Fade in animation for dashboard cards */
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fade-in {
+        animation: fade-in 0.4s ease-out forwards;
+        opacity: 0;
+      }
+      /* Hide scrollbar for clean UI in horizontal lists */
+      .no-scrollbar::-webkit-scrollbar {
+          display: none;
+      }
+      .no-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+      }
+      /* Custom Scrollbar for vertical lists */
+      .custom-scrollbar::-webkit-scrollbar {
+          width: 6px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+          background: transparent;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+          background-color: #334155;
+          border-radius: 20px;
+      }
+      
+      /* Map container fix */
+      .leaflet-container {
+        background: #020617;
+        font-family: 'Inter', sans-serif;
+        z-index: 0;
+      }
+      .leaflet-popup-content-wrapper {
+        background: #0f172a;
+        color: #ffffff;
+        border-radius: 8px;
+        border: 1px solid #334155;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+      }
+      .leaflet-popup-tip {
+        background: #0f172a;
+        border-top: 1px solid #334155;
+        border-left: 1px solid #334155;
+      }
+      .leaflet-popup-close-button {
+        color: #94a3b8 !important;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.13.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.564.0"
+  }
+}
+</script>
+</head>
+  <body class="bg-background-light dark:bg-background-dark text-text-main-light dark:text-text-white min-h-screen selection:bg-primary selection:text-white antialiased transition-colors duration-300">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
