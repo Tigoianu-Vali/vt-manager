@@ -149,7 +149,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onDelete }) => {
                 
                 {/* Main card */}
                 <div 
-                    className="bg-white dark:bg-card-dark rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 dark:border-gray-800" 
+                    className="bg-white dark:bg-card-dark rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 dark:border-gray-800 touch-none" 
                     style={{ transform: `translateX(${swipeX}px)`, transition: isDragging ? 'none' : 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)' }} 
                     onTouchStart={handleTouchStart} 
                     onTouchMove={handleTouchMove} 
@@ -220,16 +220,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onDelete }) => {
                             </div>
                         </div>
 
-                        {/* Info Bar - Phone & Date */}
-                        <div className="p-3 bg-gray-50 dark:bg-card-dark/50 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between">
-                            {/* Phone */}
-                            <div className="flex items-center gap-1.5">
-                                <Phone size={12} className="text-gray-400" />
-                                <span className="text-xs font-medium text-gray-600 dark:text-gray-400">
-                                    {project.phone || '—'}
-                                </span>
-                            </div>
-                            
+                        {/* Info Bar - Date only */}
+                        <div className="p-3 bg-gray-50 dark:bg-card-dark/50 border-t border-gray-100 dark:border-gray-800 flex items-center justify-end">
                             {/* Date */}
                             <div className="flex items-center gap-1.5 text-gray-400">
                                 <Clock size={12} />

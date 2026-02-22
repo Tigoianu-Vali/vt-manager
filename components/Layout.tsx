@@ -44,7 +44,7 @@ const Header = () => {
                     <div className="relative group cursor-pointer">
                         <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-cyan-400 rounded-full opacity-75 group-hover:opacity-100 blur transition duration-200 group-hover:scale-110"></div>
                         <img 
-                            src="./profil.jpeg" 
+                            src="/profil.jpeg" 
                             alt="User Profile" 
                             className="relative w-12 h-12 rounded-full object-cover border-2 border-background-light dark:border-background-dark"
                         />
