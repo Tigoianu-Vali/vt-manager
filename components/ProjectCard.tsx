@@ -182,10 +182,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onDelete }) => {
                                 style={{ 
                                     backgroundImage: project.image 
                                         ? `url('${project.image}')` 
-                                        : getUniqueGradient(project.name || project.client || '')
+                                        : getStatusGradient(project.status)
                                 }} 
                             />
-                            {!project.image && <div className="absolute inset-0" style={{ background: getUniqueGradient(project.name || project.client || '') }} />}
+                            {!project.image && <div className="absolute inset-0" style={{ background: getStatusGradient(project.status) }} />}
                             
                             {/* Gradient overlay */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
