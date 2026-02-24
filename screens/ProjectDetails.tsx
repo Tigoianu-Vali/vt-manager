@@ -1048,7 +1048,7 @@ const ProjectDetails: React.FC = () => {
                 <main className="px-6 py-6 space-y-8 min-h-[500px]">
                     {activeTab === 'survey' && (
                         <>
-                            <section className="bg-white dark:bg-card-dark rounded-3xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm space-y-6 relative">
+                            <section className="bg-white dark:bg-card-dark rounded-3xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm space-y-6 relative overflow-hidden">
                                 <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-2">
                                         <div className="p-2 bg-blue-500/10 rounded-lg text-primary"><User size={18} /></div>
@@ -1260,7 +1260,7 @@ const ProjectDetails: React.FC = () => {
                             </section>
 
                             {/* Section 1: Field Measurements */}
-                            <section className="bg-white dark:bg-card-dark rounded-3xl p-5 border border-gray-200 dark:border-gray-800 shadow-sm">
+                            <section className="bg-white dark:bg-card-dark rounded-3xl p-5 border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden">
                                 <div className="flex items-center gap-2 mb-6">
                                     <div className="p-2 bg-blue-500/10 rounded-lg text-primary"><Ruler size={18} /></div>
                                     <h3 className="text-sm font-black dark:text-white uppercase tracking-wider">{t('section_measurements')}</h3>
@@ -1284,7 +1284,7 @@ const ProjectDetails: React.FC = () => {
                             </section>
 
                             {/* Section 2: Topography */}
-                            <section className="bg-white dark:bg-card-dark rounded-3xl p-5 border border-gray-200 dark:border-gray-800 shadow-sm space-y-6">
+                            <section className="bg-white dark:bg-card-dark rounded-3xl p-5 border border-gray-200 dark:border-gray-800 shadow-sm space-y-6 overflow-hidden">
                                 <div className="flex items-center gap-2 mb-2">
                                     <div className="p-2 bg-blue-500/10 rounded-lg text-primary"><Mountain size={18} /></div>
                                     <h3 className="text-sm font-black dark:text-white uppercase tracking-wider">{t('section_topography')}</h3>
@@ -1332,7 +1332,7 @@ const ProjectDetails: React.FC = () => {
                             </section>
 
                             {/* Section 3: Vegetation */}
-                            <section className="bg-white dark:bg-card-dark rounded-3xl p-5 border border-gray-200 dark:border-gray-800 shadow-sm">
+                            <section className="bg-white dark:bg-card-dark rounded-3xl p-5 border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden">
                                 <div className="flex items-center gap-2 mb-6">
                                     <div className="p-2 bg-blue-500/10 rounded-lg text-primary"><Trees size={18} /></div>
                                     <h3 className="text-sm font-black dark:text-white uppercase tracking-wider">{t('section_vegetation')}</h3>
@@ -1356,7 +1356,7 @@ const ProjectDetails: React.FC = () => {
                             </section>
 
                             {/* Section 4: Obstacles */}
-                            <section className="bg-white dark:bg-card-dark rounded-3xl p-5 border border-gray-200 dark:border-gray-800 shadow-sm">
+                            <section className="bg-white dark:bg-card-dark rounded-3xl p-5 border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden">
                                 <div className="flex items-center gap-2 mb-6">
                                     <div className="p-2 bg-blue-500/10 rounded-lg text-primary"><Activity size={18} /></div>
                                     <h3 className="text-sm font-black dark:text-white uppercase tracking-wider">{t('section_obstacles')}</h3>
@@ -1396,7 +1396,7 @@ const ProjectDetails: React.FC = () => {
                     {activeTab === 'logistics' && (
                         <>
                             {/* MATERIALS */}
-                            <section className="bg-white dark:bg-card-dark rounded-3xl p-5 border border-gray-200 dark:border-gray-800 shadow-sm">
+                            <section className="bg-white dark:bg-card-dark rounded-3xl p-5 border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden">
                                 <div className="flex items-center justify-between mb-6">
                                     <div className="flex items-center gap-2">
                                         <div className="p-2 bg-blue-500/10 rounded-lg text-primary"><Package size={18} /></div>
@@ -1512,7 +1512,7 @@ const ProjectDetails: React.FC = () => {
                             </section>
                             
                             {/* MACHINES */}
-                            <section className="bg-white dark:bg-card-dark rounded-3xl p-5 border border-gray-200 dark:border-gray-800 shadow-sm">
+                            <section className="bg-white dark:bg-card-dark rounded-3xl p-5 border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden">
                                 <div className="flex items-center justify-between mb-6">
                                         <div className="flex items-center gap-2">
                                         <div className="p-2 bg-blue-500/10 rounded-lg text-primary"><Truck size={18} /></div>
@@ -1614,7 +1614,7 @@ const ProjectDetails: React.FC = () => {
                     {activeTab === 'gallery' && (
                         <>
                             {/* PHOTOS */}
-                            <section className="bg-white dark:bg-card-dark rounded-3xl p-5 border border-gray-200 dark:border-gray-800 shadow-sm">
+                            <section className="bg-white dark:bg-card-dark rounded-3xl p-5 border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden">
                                 <div className="flex items-center justify-between mb-6">
                                     <div className="flex items-center gap-2">
                                         <div className="p-2 bg-blue-500/10 rounded-lg text-primary"><Camera size={18} /></div>
@@ -1662,7 +1662,7 @@ const ProjectDetails: React.FC = () => {
                             </section>
                             
                             {/* DOCUMENTS */}
-                            <section className="bg-white dark:bg-card-dark rounded-3xl p-5 border border-gray-200 dark:border-gray-800 shadow-sm">
+                            <section className="bg-white dark:bg-card-dark rounded-3xl p-5 border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden">
                                 <div className="flex items-center justify-between mb-6">
                                     <div className="flex items-center gap-2">
                                         <div className="p-2 bg-blue-500/10 rounded-lg text-primary"><FolderOpen size={18} /></div>
@@ -1725,7 +1725,7 @@ const ProjectDetails: React.FC = () => {
 
                     {activeTab === 'notes' && (
                         <>
-                            <section className="bg-white dark:bg-card-dark rounded-3xl p-5 border border-gray-200 dark:border-gray-800 shadow-sm">
+                            <section className="bg-white dark:bg-card-dark rounded-3xl p-5 border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden">
                                 <div className="flex items-center gap-2 mb-4">
                                     <div className="p-2 bg-blue-500/10 rounded-lg text-primary"><ClipboardList size={18} /></div>
                                     <h3 className="text-sm font-black dark:text-white uppercase tracking-wider">{t('section_notes')}</h3>
@@ -1822,16 +1822,16 @@ const ProjectDetails: React.FC = () => {
 
 // UI Components
 const InputBox = ({ label, value, unit, onChange }: { label: string; value: string; unit?: string; onChange: (value: string) => void }) => (
-    <div className="bg-gray-50 dark:bg-black/20 rounded-xl px-4 py-3 border border-gray-100 dark:border-gray-800">
-        <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">{label}</label>
-        <div className="flex items-center gap-2 mt-1">
+    <div className="bg-gray-50 dark:bg-black/20 rounded-xl px-4 py-3 border border-gray-100 dark:border-gray-800 overflow-hidden">
+        <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest truncate block">{label}</label>
+        <div className="flex items-center gap-2 mt-1 overflow-hidden">
             <input 
                 type="text"
                 value={value}
                 onChange={(e) => onChange(e.target.value)}
-                className="flex-1 bg-transparent text-lg font-bold dark:text-white outline-none"
+                className="flex-1 bg-transparent text-lg font-bold dark:text-white outline-none min-w-0"
             />
-            {unit && <span className="text-xs font-bold text-gray-400">{unit}</span>}
+            {unit && <span className="text-xs font-bold text-gray-400 shrink-0">{unit}</span>}
         </div>
     </div>
 );
