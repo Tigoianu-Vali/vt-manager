@@ -868,7 +868,7 @@ const ProjectDetails: React.FC = () => {
     };
     const sendMsg = () => window.location.href = `sms:${phoneNumber}`;
 
-    if (!project) return <div className="p-10 text-center dark:text-white">...</div>;
+    if (!project) return <div className="p-10 text-center dark:text-white min-h-screen flex items-center justify-center"><div className="animate-pulse flex flex-col items-center gap-3"><div className="w-12 h-12 rounded-full bg-gray-300 dark:bg-gray-700"></div><div className="w-32 h-4 rounded bg-gray-300 dark:bg-gray-700"></div></div></div>;
 
     return (
         <div className="flex flex-col h-screen bg-background-light dark:bg-background-dark">

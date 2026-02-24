@@ -10,7 +10,7 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
     return (
-        <div className="flex flex-col min-h-screen bg-background-light dark:bg-background-dark transition-colors duration-300">
+        <div className="flex flex-col min-h-screen bg-background-light dark:bg-background-dark transition-colors duration-300 overflow-x-hidden">
             {/* Header - Only show on Dashboard */}
             <Header />
 

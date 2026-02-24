@@ -46,7 +46,7 @@ const Dashboard: React.FC = () => {
         });
 
     return (
-        <div className="px-4 pb-10">
+        <div className="px-4 pb-10 overflow-x-hidden">
             {/* Search & Utility Bar */}
             <div className="my-6 space-y-4">
                 <div className="flex gap-3">
@@ -108,7 +108,7 @@ const Dashboard: React.FC = () => {
             </div>
 
             {/* Project List */}
-            <div className="grid gap-6">
+            <div className="grid gap-6 overflow-x-hidden">
                 {filteredProjects.map((project, index) => (
                     <div 
                         key={project.id} 

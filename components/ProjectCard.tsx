@@ -47,28 +47,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onDelete }) => {
         return gradients[index];
     };
 
-    const handleTouchStart = (e: React.TouchEvent | React.MouseEvent) => {
-        startXRef.current = 'touches' in e ? e.touches[0].clientX : (e as React.MouseEvent).clientX;
-        setIsDragging(true);
-    };
-
-    const handleTouchMove = (e: React.TouchEvent | React.MouseEvent) => {
-        if (!isDragging) return;
-        const currentX = 'touches' in e ? e.touches[0].clientX : (e as React.MouseEvent).clientX;
-        const diff = currentX - startXRef.current;
-        if (diff < 0) {
-            setSwipeX(Math.max(diff, -180));
-        }
-    };
-
-    const handleTouchEnd = () => {
-        setIsDragging(false);
-        if (swipeX < -100) {
-            setShowDeleteConfirm(true);
-        }
-        setSwipeX(0);
-    };
-
     const handleDelete = async () => {
         await deleteProject(project.id);
         setShowDeleteConfirm(false);
@@ -133,6 +111,28 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onDelete }) => {
         ];
         const index = project.client ? project.client.charCodeAt(0) % gradients.length : 0;
         return gradients[index];
+    };
+
+    const handleTouchStart = (e: React.TouchEvent | React.MouseEvent) => {
+        startXRef.current = 'touches' in e ? e.touches[0].clientX : (e as React.MouseEvent).clientX;
+        setIsDragging(true);
+    };
+
+    const handleTouchMove = (e: React.TouchEvent | React.MouseEvent) => {
+        if (!isDragging) return;
+        const currentX = 'touches' in e ? e.touches[0].clientX : (e as React.MouseEvent).clientX;
+        const diff = currentX - startXRef.current;
+        if (diff < 0) {
+            setSwipeX(Math.max(diff, -180));
+        }
+    };
+
+    const handleTouchEnd = () => {
+        setIsDragging(false);
+        if (swipeX < -100) {
+            setShowDeleteConfirm(true);
+        }
+        setSwipeX(0);
     };
 
     return (
